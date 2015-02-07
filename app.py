@@ -56,6 +56,9 @@ class Dance(db.Model):
   id = db.Column(db.Integer(), primary_key = True)
   name = db.Column(db.String(30), nullable=False)
   category = db.Column(db.String(30), nullable=False)
+  youtube_id = db.Column(db.String(50), nullable=False)
+  up = db.Column(db.Integer(), default=0)
+  down = db.Column(db.Integer(), default=0)
   steps = db.relationship('Step')
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
@@ -87,6 +90,7 @@ def user_registered_sighandler(app, user, confirm_token):
 
 class DanceForm(Form):
   name = TextField('Name', [validators.Length(min=2, max=30)])
+  youtube_id = TextField('Youtube ID', [validators.Length(min=2, max=50)])
   category = SelectField('Category', choices=[
       ('wedding', 'Wedding'),
       ('bar', 'Bar'),
@@ -128,6 +132,7 @@ def create_dance():
   if form.validate():
     dance = Dance()
     dance.name = form.name.data
+    dance.youtube_id = form.youtube_id.data
     dance.category = form.category.data
     dance.difficulty = form.difficulty.data
     dance.user_id = 1

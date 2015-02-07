@@ -13,6 +13,7 @@ New Dance
 <form method=post action="/dance/create">
   <dl>
     {{ render_field(form.name) }}
+    {{ render_field(form.youtube_id) }}
     {{ render_field(form.category) }}
     {{ render_field(form.difficulty) }}
   </dl>

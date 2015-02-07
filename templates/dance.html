@@ -20,5 +20,7 @@ Dance {{ dance.name }}
     {% endautoescape %}
  {% endfor %}
 </ul>
+<iframe src="http://www.youtube.com/embed/{{ dance.youtube_id }}"
+ width="560" height="315" frameborder="0" allowfullscreen></iframe>
 
 {% endblock %}
