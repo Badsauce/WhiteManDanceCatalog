@@ -240,3 +240,7 @@ def categories():
 @app.route('/gifapalooza')
 def gifapalooza():
   return render_template('gifapalooza.html')
+
+@app.route('/category/Funeral/Wake')
+def funeral():
+  return render_template('wake.html')

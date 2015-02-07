@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+Sickening
+{% endblock %}
+
+{% block head %}
+<script type="text/javascript" src="{{url_for('static', filename='js/index.js')}}"></script>
+{% endblock %}
+
+{% block content %}
+
+<header>
+  <img src="/static/img/lawnmower.gif" />
+</header>
+
+<ul>
+    <li class="dance_move">
+        <h2>THANK YOU!!!</h2>
+        <img src="/static/img/dance_thumbnail_1.gif"/>
+    </li>
+</ul>
+
+<footer>
+  <a href="/gifapalooza">
+    <img src="/static/img/ad_viagra.gif" />
+  </A>
+</footer>
+
+{% endblock %}
