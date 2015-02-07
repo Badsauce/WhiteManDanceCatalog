@@ -1,1 +1,1 @@
-web: python manage.py run
+web: python manage.py build && python manage.py run

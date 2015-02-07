@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import os
 import argparse
 import code
 from fabric.api import task
@@ -35,7 +36,8 @@ def console():
   code.interact(local=locals())
 
 def run():
-  app.run(host='127.0.0.1', debug=True)
+  port = int(os.environ.get("PORT", 5000))
+  app.run(host='127.0.0.1', port=port, debug=True)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
