@@ -8,9 +8,8 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.security import Security, SQLAlchemyUserDatastore, UserMixin, RoleMixin, login_required, roles_required, current_user
 from flask.ext.security.signals import user_registered
 
-################################################################################
 # Config
-################################################################################
+
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.config['DEBUG'] = 'PRODUCTION' not in os.environ
@@ -28,17 +27,8 @@ app.config['SECURITY_LOGIN_USER_TEMPLATE'] = 'login.html'
 app.config['SECURITY_LOGIN_URL'] = '/login'
 app.config['SECURITY_CHANGEABLE'] = True
 
-# Fake emails for now
-class FakeMail(object):
-  def send(self, message):
-    pass
-
-app.extensions = getattr(app, 'extensions', {})
-app.extensions['mail'] = FakeMail()
-
-################################################################################
 # Database
-################################################################################
+
 db = SQLAlchemy(app)
 
 roles_users = db.Table('roles_users',
@@ -76,24 +66,15 @@ def user_registered_sighandler(app, user, confirm_token):
   db.session.commit()
 
 
-################################################################################
 # Routes
-################################################################################
+
 @app.route('/')
 def index():
-  if not current_user.is_authenticated():
-    return render_template('index.html')
-  else:
-    return redirect('/dashboard')
+  return render_template('index.html')
 
 @app.route('/register', methods=['GET'])
 def register():
   return render_template('register.html')
-
-@app.route('/dashboard')
-@login_required
-def dashboard():
-  return render_template('dashboard.html')
 
 @app.route('/danceydance/<id>')
 #@login_required
