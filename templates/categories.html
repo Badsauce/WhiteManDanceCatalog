@@ -9,12 +9,25 @@ Dance Categories
 {% endblock %}
 
 {% block content %}
+
+<header>
+  <h1>Categories</h1>
+  <img src="/static/img/lawnmower.gif" />
+</header>
+
 <ul>
   {% for category in categories %}
-    <li>
-      {{ category[1] }}
+    <li class="dance_move">
+      <a href="{{ "/category/%s" % category[1] }}">
+        <h2>{{ category[1] }}</h2>
+        <img src='{{ "/static/img/dance_thumbnail_%s.gif" % category[1] }}'/>
+      </a>
     </li>
  {% endfor %}
 </ul>
+
+<footer>
+  <img src="/static/img/ad_viagra.gif" />
+</footer>
 
 {% endblock %}
