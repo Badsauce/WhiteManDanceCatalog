@@ -344,6 +344,216 @@ def build():
       db.session.add(step)
       db.session.commit()
 
+      # Dance 10
+      dance = Dance()
+      dance.name = 'Eager Student'
+      dance.youtube_id = 'c7XX2iZ83ig'
+      dance.category = 'Middle School Chaperone'
+      dance.difficulty = 2
+      dance.hotness = 2
+      dance.user_id = user.id
+      db.session.add(dance)
+      db.session.commit()
+
+      step = Step()
+      step.name = 'Step 1'
+      step.vine_url = 'OUZLqOWUz9h'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
+
+      step = Step()
+      step.name = 'Step 2'
+      step.vine_url = 'OUZLOn1ZZI2'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
+
+      step = Step()
+      step.name = 'Step 3'
+      step.vine_url = 'OUZLnWVbuW7'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
+
+      # Dance 11
+      dance = Dance()
+      dance.name = 'Sizzler'
+      dance.youtube_id = 'Rxfm9qELqP0'
+      dance.category = 'Middle School Chaperone'
+      dance.difficulty = 2
+      dance.hotness = 2
+      dance.user_id = user.id
+      db.session.add(dance)
+      db.session.commit()
+
+      step = Step()
+      step.name = 'Step 1'
+      step.vine_url = 'OUZEaw56iDq'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
+
+      step = Step()
+      step.name = 'Step 2'
+      step.vine_url = 'OUZExma7T5Q'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
+
+      step = Step()
+      step.name = 'Step 3'
+      step.vine_url = 'OUZ9uQ3XMpW'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
+
+      # Dance 12
+      dance = Dance()
+      dance.name = 'Saturday Night Fever'
+      dance.youtube_id = 'PmezzsBmOh8'
+      dance.category = 'Middle School Chaperone'
+      dance.difficulty = 2
+      dance.hotness = 2
+      dance.user_id = user.id
+      db.session.add(dance)
+      db.session.commit()
+
+      step = Step()
+      step.name = 'Step 1'
+      step.vine_url = 'OUZ227KpXlP'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
+
+      step = Step()
+      step.name = 'Step 2'
+      step.vine_url = 'OUZ0eF7PPwa'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
+
+      step = Step()
+      step.name = 'Step 3'
+      step.vine_url = 'OUZ0FBOiqXw'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
+
+      step = Step()
+      step.name = 'Step 4'
+      step.vine_url = 'OUZ0VJt1Wwp'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
+
+      # Dance 13
+      dance = Dance()
+      dance.name = 'Roxbury'
+      dance.youtube_id = 'XptYC0iWL7s'
+      dance.category = 'Middle School Chaperone'
+      dance.difficulty = 2
+      dance.hotness = 2
+      dance.user_id = user.id
+      db.session.add(dance)
+      db.session.commit()
+
+      step = Step()
+      step.name = 'Step 1'
+      step.vine_url = 'OUZQ3TBu1tV'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
+
+      step = Step()
+      step.name = 'Step 2'
+      step.vine_url = 'OUZ2a6lhIjb'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
+
+      step = Step()
+      step.name = 'Step 3'
+      step.vine_url = 'OUZ2AlqwmZP'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
+
+      # Dance 14
+      dance = Dance()
+      dance.name = 'Shoulder Rock'
+      dance.youtube_id = 'D9hbzzu3oTY'
+      dance.category = 'Middle School Chaperone'
+      dance.difficulty = 2
+      dance.hotness = 2
+      dance.user_id = user.id
+      db.session.add(dance)
+      db.session.commit()
+
+      step = Step()
+      step.name = 'Step 1'
+      step.vine_url = 'OUZQ665nVj1'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
+
+      step = Step()
+      step.name = 'Step 2'
+      step.vine_url = 'OUZQP5vIv2X'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
+
+      # Dance 15
+      dance = Dance()
+      dance.name = 'Point and Twist'
+      dance.youtube_id = 'LB-aHh-tHw8'
+      dance.category = 'Middle School Chaperone'
+      dance.difficulty = 2
+      dance.hotness = 2
+      dance.user_id = user.id
+      db.session.add(dance)
+      db.session.commit()
+
+      step = Step()
+      step.name = 'Step 1'
+      step.vine_url = 'OUZxeWLPnPz'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
+
+      step = Step()
+      step.name = 'Step 2'
+      step.vine_url = 'OUZQzJ9UWDV'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
+
+      step = Step()
+      step.name = 'Step 3'
+      step.vine_url = 'OUZQmA2060I'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
+
 
 def console():
   context = locals()
