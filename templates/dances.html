@@ -14,19 +14,8 @@ All Dances
   <img src="/static/img/lawnmower.gif" />
 </header>
 
-<!-- <p><a href="/dance/new">New Dance</a></p> -->
-<ul>
-  {% for dance in dances %}
-    <li class="dance_move">
-      <a href='{{ "/dance/%d" % dance.id }}'>
-        <h2>{{ dance.name }}</h2>
-        <img src='{{ "/static/img/dance_thumbnail_%d.gif" % dance.id }}'/>
-        <h3>Category: {{ dance.category }}</h3>
-        <h3>Difficulty: {{ dance.diffulty }}</h3>
-      </a>
-    </li>
-  {% endfor %}
-</ul>
+{% from "_render_dances.html" import render_dances %}
+{{ render_dances(dances) }}
 
 <footer>
   <img src="/static/img/ad_viagra.gif" />

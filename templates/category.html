@@ -14,16 +14,8 @@ Category {{ name }}
   <img src="/static/img/lawnmower.gif" />
 </header>
 
-<p><a href="/dance/new">New Dance</a></p>
-<ul>
-  {% for dance in dances %}
-    <ul>
-      <li>{{ dance.name }}</li>
-      <li>{{ dance.category }}</li>
-      <li>{{ dance.diffulty }}</li>
-    </ul>
-  {% endfor %}
-</ul>
+{% from "_render_dances.html" import render_dances %}
+{{ render_dances(dances) }}
 
 <footer>
   <img src="/static/img/ad_viagra.gif" />
