@@ -7,7 +7,7 @@
 }
 
 body {
-	background-image: url("/static/img/redplaid.jpg");
+	background-image: url("img/redplaid.jpg");
 }
 
 a {
