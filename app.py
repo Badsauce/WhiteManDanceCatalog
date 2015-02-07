@@ -6,13 +6,14 @@ import requests
 
 from flask import Flask, flash, render_template, redirect, jsonify, url_for, request, Response
 from flask.ext.sqlalchemy import SQLAlchemy
+from sqlalchemy import func
 from flask.ext.security import Security, SQLAlchemyUserDatastore, UserMixin, RoleMixin, login_required, roles_required, current_user
 from flask.ext.security.signals import user_registered
 from wtforms import *
 
 # Constants
 
-categories = [
+category_list = [
   ('wedding', 'Wedding'),
   ('bar', 'Bar'),
   ('wallflower', 'Wall Flower'),
@@ -101,7 +102,7 @@ def user_registered_sighandler(app, user, confirm_token):
 class DanceForm(Form):
   name = TextField('Name', [validators.Length(min=2, max=30)])
   youtube_id = TextField('Youtube ID', [validators.Length(min=2, max=50)])
-  category = SelectField('Category', choices=categories)
+  category = SelectField('Category', choices=category_list)
   difficulty = RadioField('Difficulty', choices=[
     ('1','Easy'),
     ('2','Medium'),
@@ -222,3 +223,16 @@ def step(step_id):
   else:
     flash('No such step!')
     return redirect('/')
+
+@app.route('/category/<name>')
+def category(name):
+  dances = db.session.query(Dance).filter(Dance.category == name)
+  if dances:
+    return render_template('category.html', dances=dances, name=name)
+  else:
+    flash('No dances for this category!')
+    return redirect('/')
+
+@app.route('/categories')
+def categories():
+  return render_template('categories.html', categories=category_list)
