@@ -23,10 +23,10 @@ def build():
       user = User.query.first()
 
       dance = Dance()
-      dance.name = 'Hands in the air'
-      dance.youtube_id = 'ZdtNR0Gu_FI'
-      dance.category = 'Bar'
-      dance.difficulty = 'Bar'
+      dance.name = 'The Bus Driver'
+      dance.youtube_id = 'KqIT64P1BOU'
+      dance.category = 'Middle School Chaperone'
+      dance.difficulty = '6'
       dance.user_id = user.id
       db.session.add(dance)
       db.session.commit()
@@ -38,6 +38,31 @@ def build():
       step.dance_id = dance.id
       db.session.add(step)
       db.session.commit()
+
+      step = Step()
+      step.name = 'Step 2'
+      step.vine_url = 'https://vine.co/v/OUzU2V1JZHe'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
+
+      step = Step()
+      step.name = 'Step 3'
+      step.vine_url = 'https://vine.co/v/OUzxZHDl7Dv'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
+
+      tep = Step()
+      step.name = 'Advanced'
+      step.vine_url = 'https://vine.co/v/OUz2zqOBJj0'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
+
 
 def console():
   context = locals()
