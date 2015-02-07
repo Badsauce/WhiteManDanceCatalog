@@ -9,8 +9,7 @@ from flask_security.utils import encrypt_password
 import requests
 
 def get_html(url):
-  r = requests.get('https://vine.co/oembed.json?url=' + url + '&audio=1')
-  return r.json()['html']
+  return '<iframe src="https://vine.co/v/'+url+'/embed/simple?audio=1" width="600" height="600" frameborder="0"></iframe><script src="https://platform.vine.co/static/scripts/embed.js"></script>'
 
 def build():
   with app.app_context():
@@ -35,14 +34,14 @@ def build():
       step = Step()
       step.name = 'Step 1'
       step.vine_url = 'OUzUuPjmleM'
-      step.vine_embedded_html = '<iframe src="https://vine.co/v/'+step.vine_url+'/embed/simple?audio=1" width="600" height="600" frameborder="0"></iframe><script src="https://platform.vine.co/static/scripts/embed.js"></script>'
+      step.vine_embedded_html = get_html(step.vine_url)
       step.dance_id = dance.id
       db.session.add(step)
       db.session.commit()
 
       step = Step()
       step.name = 'Step 2'
-      step.vine_url = 'https://vine.co/v/OUzU2V1JZHe'
+      step.vine_url = 'OUzU2V1JZHe'
       step.vine_embedded_html = get_html(step.vine_url)
       step.dance_id = dance.id
       db.session.add(step)
@@ -50,7 +49,7 @@ def build():
 
       step = Step()
       step.name = 'Step 3'
-      step.vine_url = 'https://vine.co/v/OUzxZHDl7Dv'
+      step.vine_url = 'OUzxZHDl7Dv'
       step.vine_embedded_html = get_html(step.vine_url)
       step.dance_id = dance.id
       db.session.add(step)
@@ -58,7 +57,7 @@ def build():
 
       tep = Step()
       step.name = 'Advanced'
-      step.vine_url = 'https://vine.co/v/OUz2zqOBJj0'
+      step.vine_url = 'OUz2zqOBJj0'
       step.vine_embedded_html = get_html(step.vine_url)
       step.dance_id = dance.id
       db.session.add(step)
