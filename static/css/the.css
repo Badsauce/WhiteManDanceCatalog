@@ -8,6 +8,8 @@
 
 body {
 	background-image: url("/static/img/redplaid.jpg");
+	font-size: 2.3em;
+	margin: 8px;
 }
 
 a {
@@ -29,7 +31,7 @@ img {
 /*Home Page CSS Rules*/
 
 .home-title {
-	-webkit-text-stroke: 2px #ff7800;
+	-webkit-text-stroke: 4px #ff7800;
 }
 
 .button {
