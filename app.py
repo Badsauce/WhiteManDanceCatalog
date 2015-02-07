@@ -3,10 +3,11 @@ import sys
 import datetime
 import json
 
-from flask import Flask, render_template, redirect, jsonify, url_for, request, Response
+from flask import Flask, flash, render_template, redirect, jsonify, url_for, request, Response
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.security import Security, SQLAlchemyUserDatastore, UserMixin, RoleMixin, login_required, roles_required, current_user
 from flask.ext.security.signals import user_registered
+from wtforms import *
 
 # Config
 
@@ -45,12 +46,15 @@ class Step(db.Model):
   __tablename__ = 'step'
   id = db.Column(db.Integer(), primary_key = True)
   name = db.Column(db.String(30), nullable=False)
+  vine_url = db.Column(db.String(50), nullable=False)
+  vine_embedded_html = db.Column(db.String(50), nullable=False)
   dance_id = db.Column(db.Integer, db.ForeignKey('dance.id'))
 
 class Dance(db.Model):
   __tablename__ = 'dance'
   id = db.Column(db.Integer(), primary_key = True)
   name = db.Column(db.String(30), nullable=False)
+  category = db.Column(db.String(30), nullable=False)
   steps = db.relationship('Step')
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
@@ -78,6 +82,23 @@ def user_registered_sighandler(app, user, confirm_token):
   user_datastore.add_role_to_user(user, default_role)
   db.session.commit()
 
+# Forms
+
+class DanceForm(Form):
+  name = TextField('Name', [validators.Length(min=2, max=30)])
+  category = SelectField('Category', choices=[
+      ('wedding', 'Wedding'),
+      ('bar', 'Bar'),
+      ('wallflower', 'Wall Flower'),
+      ('mschaperone', 'Middle School Chaperone'),
+      ('funeralwake', 'Funeral/Wake')
+  ])
+  difficulty = SelectField('Difficulty', choices=[
+      ('wedding', 'Wedding'),
+      ('bar', 'Bar'),
+      ('wallflower', 'Wall Flower'),
+      ('mschaperone', 'Middle School Chaperone')
+  ])
 
 # Routes
 
@@ -89,8 +110,29 @@ def index():
 def register():
   return render_template('register.html')
 
-@app.route('/danceydance/<id>')
-#@login_required
-def danceydance(id):
+@app.route('/dance/new', methods=['GET'])
+@login_required
+def new_dance():
+  form = DanceForm(request.form)
+  return render_template('new_dance.html', form=form)
+
+@app.route('/dance/create', methods=['POST'])
+@login_required
+def create_dance():
+  form = DanceForm(request.form)
+  if form.validate():
+    dance = Dance()
+    dance.name = form.name.data
+    dance.category = form.category.data
+    dance.difficulty = form.difficulty.data
+    db.session.add(dance)
+    flash('Successfully added dance!')
+    return redirect('/')
+  else:
+    flash('Error creating dance!')
+    return redirect('/')
+
+@app.route('/dance/<id>')
+def dance(id):
   steps = ['a', 'b', 'c']
   return render_template('danceydance.html', steps=steps)
