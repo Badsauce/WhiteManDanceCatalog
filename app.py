@@ -191,20 +191,20 @@ def create_step(dance_id):
     flash('Error creating step!')
     return redirect('/')
 
-#@app.route('/dance/<dance_id>/steps')
-#def steps():
-#  steps = Step.query.all()
-#  if steps:
-#    return render_template('dances.html', steps=steps)
-#  else:
-#    flash('No steps!')
-#    return redirect('/')
-#
-#@app.route('/dance/<dance_id>/step/<step_id>')
-#def step(id):
-#  s = Step.query.get(step_id)
-#  if s:
-#    return render_template('step.html', step=s)
-#  else:
-#    flash('No such step!')
-#    return redirect('/')
+@app.route('/dance/<dance_id>/steps')
+def steps(dance_id):
+  steps = db.session.query(Step).filter(Step.dance_id == dance_id)
+  if steps:
+    return render_template('steps.html', steps=steps)
+  else:
+    flash('No steps!')
+    return redirect('/')
+
+@app.route('/step/<step_id>')
+def step(step_id):
+  s = Step.query.get(step_id)
+  if s:
+    return render_template('step.html', step=s)
+  else:
+    flash('No such step!')
+    return redirect('/')

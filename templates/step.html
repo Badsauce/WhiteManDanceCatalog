@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dancey Dance
+{% endblock %}
+
+{% block head %}
+<script type="text/javascript" src="{{url_for('static', filename='js/index.js')}}"></script>
+{% endblock %}
+
+{% block content %}
+<h1>Name: {{ step.name }}</h1>
+<h2>Vine URL: {{ step.vine_url }} </h2>
+<h2>Vine Embedded HTML: {{ step.vine_embedded_html }} </h2>
+
+{% endblock %}
