@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+THANKS
+{% endblock %}
+
+{% block head %}
+<script type="text/javascript" src="{{url_for('static', filename='js/index.js')}}"></script>
+{% endblock %}
+
+{% block content %}
+
+<header>
+  <img class="palooza" src="/static/img/lawnmower.gif" />
+</header>
+
+<ul>
+    <li class="dance_move">
+        <h2>THANK YOU!!!</h2>
+        <img class="palooza" src="/static/img/dance_thumbnail_1.gif"/>
+    </li>
+</ul>
+
+<footer>
+  <img class="palooza" src="/static/img/ad_viagra.gif" />
+</footer>
+
+<script>
+  window.setInterval(function(){
+    var nextImage = Math.floor((Math.random() * 9) + 1);
+    $('.palooza').attr("src", "/static/img/dance_thumbnail_"+nextImage+".gif");
+}, 2000);
+
+</script>
+
+{% endblock %}

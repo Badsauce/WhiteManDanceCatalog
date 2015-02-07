@@ -236,3 +236,7 @@ def category(name):
 @app.route('/categories')
 def categories():
   return render_template('categories.html', categories=category_list)
+
+@app.route('/gifapalooza')
+def gifapalooza():
+  return render_template('gifapalooza.html')
