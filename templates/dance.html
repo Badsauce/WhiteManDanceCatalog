@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-Dancey Dance
+Dance {{ dance.name }}
 {% endblock %}
 
 {% block head %}
@@ -12,5 +12,13 @@ Dancey Dance
 <h1>Name: {{ dance.name }}</h1>
 <h2>Category: {{ dance.category }} </h2>
 <h2>Difficulty: {{ dance.dificulty }} </h2>
+<ul>
+  {% for step in dance.steps %}
+    <li>{{ step.name }}</li>
+    {% autoescape false %}
+    <li>{{ step.vine_embedded_html }}</li>
+    {% endautoescape %}
+ {% endfor %}
+</ul>
 
 {% endblock %}

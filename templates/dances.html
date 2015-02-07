@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-Dancey Dance
+All Dances
 {% endblock %}
 
 {% block head %}
@@ -9,9 +9,15 @@ Dancey Dance
 {% endblock %}
 
 {% block content %}
+<p><a href="/dance/new">New Dance</a></p>
 <ul>
- {% for dance in dances %}
- <li>{{ dance.name }}</li>
- {% endfor %}</ul>
+  {% for dance in dances %}
+    <ul>
+      <li>{{ dance.name }}</li>
+      <li>{{ dance.category }}</li>
+      <li>{{ dance.diffulty }}</li>
+    </ul>
+  {% endfor %}
+</ul>
 
 {% endblock %}
