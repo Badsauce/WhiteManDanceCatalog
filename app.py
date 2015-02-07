@@ -126,13 +126,27 @@ def create_dance():
     dance.category = form.category.data
     dance.difficulty = form.difficulty.data
     db.session.add(dance)
+    db.session.commit()
     flash('Successfully added dance!')
     return redirect('/')
   else:
     flash('Error creating dance!')
     return redirect('/')
 
+@app.route('/dance')
+def dances():
+  dances = Dance.query.all()
+  if dances:
+    return render_template('dances.html', dances=dances)
+  else:
+    flash('No dances!')
+    return redirect('/')
+
 @app.route('/dance/<id>')
 def dance(id):
-  steps = ['a', 'b', 'c']
-  return render_template('danceydance.html', steps=steps)
+  d = Dance.query.get(id)
+  if d:
+    return render_template('dance.html', dance=d)
+  else:
+    flash('No such dance!')
+    return redirect('/')
