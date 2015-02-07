@@ -26,7 +26,7 @@ def build():
       dance.name = 'The Bus Driver'
       dance.youtube_id = 'KqIT64P1BOU'
       dance.category = 'Middle School Chaperone'
-      dance.difficulty = '6'
+      dance.difficulty = 'Big Much Hard Times'
       dance.user_id = user.id
       db.session.add(dance)
       db.session.commit()

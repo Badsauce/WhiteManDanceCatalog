@@ -14,12 +14,17 @@ Dance {{ dance.name }}
 <h2>Difficulty: {{ dance.dificulty }} </h2>
 <ul>
   {% for step in dance.steps %}
-    <li>{{ step.name }}</li>
+    <li>
+      <h3>{{ step.name }}</h3>
     {% autoescape false %}
-    <li>{{ step.vine_embedded_html }}</li>
+      {{ step.vine_embedded_html }}
+    </li>
     {% endautoescape %}
  {% endfor %}
 </ul>
+
+<h2>Put it all together!</h2>
+
 <iframe src="http://www.youtube.com/embed/{{ dance.youtube_id }}"
  width="560" height="315" frameborder="0" allowfullscreen></iframe>
 
