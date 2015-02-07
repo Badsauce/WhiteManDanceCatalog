@@ -9,6 +9,11 @@ All Dances
 {% endblock %}
 
 {% block content %}
+<header>
+  <h1>Pick A Dance Move</h1>
+  <img src="/static/img/lawnmower.gif" />
+</header>
+
 <p><a href="/dance/new">New Dance</a></p>
 <ul>
   {% for dance in dances %}
@@ -19,5 +24,9 @@ All Dances
     </ul>
   {% endfor %}
 </ul>
+
+<footer>
+  <img src="/static/img/ad_viagra.gif" />
+</footer>
 
 {% endblock %}
