@@ -9,7 +9,7 @@ from flask_security.utils import encrypt_password
 import requests
 
 def get_html(url):
-  r = requests.get('https://vine.co/oembed.json?url=' + url)
+  r = requests.get('https://vine.co/oembed.json?url=' + url + '&audio=1')
   return r.json()['html']
 
 def build():
@@ -33,8 +33,8 @@ def build():
 
       step = Step()
       step.name = 'Step 1'
-      step.vine_url = 'https://vine.co/v/OUzUuPjmleM'
-      step.vine_embedded_html = get_html(step.vine_url)
+      step.vine_url = 'OUzUuPjmleM'
+      step.vine_embedded_html = '<iframe src="https://vine.co/v/'+step.vine_url+'/embed/simple?audio=1" width="600" height="600" frameborder="0"></iframe><script src="https://platform.vine.co/static/scripts/embed.js"></script>'
       step.dance_id = dance.id
       db.session.add(step)
       db.session.commit()
