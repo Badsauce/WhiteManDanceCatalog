@@ -55,13 +55,15 @@ def build():
       db.session.add(step)
       db.session.commit()
 
-      tep = Step()
+      step = Step()
       step.name = 'Advanced'
       step.vine_url = 'OUz2zqOBJj0'
       step.vine_embedded_html = get_html(step.vine_url)
       step.dance_id = dance.id
       db.session.add(step)
       db.session.commit()
+
+      
 
 
 def console():

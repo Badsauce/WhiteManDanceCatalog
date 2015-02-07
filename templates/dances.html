@@ -14,14 +14,15 @@ All Dances
   <img src="/static/img/lawnmower.gif" />
 </header>
 
-<p><a href="/dance/new">New Dance</a></p>
+<!-- <p><a href="/dance/new">New Dance</a></p> -->
 <ul>
   {% for dance in dances %}
-    <ul>
-      <li>{{ dance.name }}</li>
-      <li>{{ dance.category }}</li>
-      <li>{{ dance.diffulty }}</li>
-    </ul>
+    <li class="dance_move">
+      <h2>{{ dance.name }}</h2>
+      <img src="/static/img/raise_the_roof.gif"/>
+      <h3>Category: {{ dance.category }}</h3>
+      <h3>Difficulty: {{ dance.diffulty }}</h3>
+    </li>
   {% endfor %}
 </ul>
 
