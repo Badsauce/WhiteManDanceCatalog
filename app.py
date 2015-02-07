@@ -36,11 +36,26 @@ roles_users = db.Table('roles_users',
     db.Column('role_id', db.Integer(), db.ForeignKey('role.id')))
 
 class Role(db.Model, RoleMixin):
+  __tablename__ = 'role'
   id = db.Column(db.Integer(), primary_key=True)
   name = db.Column(db.String(80), unique=True)
   description = db.Column(db.String(255))
 
+class Step(db.Model):
+  __tablename__ = 'step'
+  id = db.Column(db.Integer(), primary_key = True)
+  name = db.Column(db.String(30), nullable=False)
+  dance_id = db.Column(db.Integer, db.ForeignKey('dance.id'))
+
+class Dance(db.Model):
+  __tablename__ = 'dance'
+  id = db.Column(db.Integer(), primary_key = True)
+  name = db.Column(db.String(30), nullable=False)
+  steps = db.relationship('Step')
+  user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
 class User(db.Model, UserMixin):
+  __tablename__ = 'user'
   id = db.Column(db.Integer(), primary_key=True)
   email = db.Column(db.String(120), index = True, unique = True, nullable = False)
   password = db.Column(db.String(255), nullable = False)
@@ -52,9 +67,7 @@ class User(db.Model, UserMixin):
   def is_admin(self):
     return self.has_role("admin")
 
-class Item(db.Model):
-  id = db.Column(db.Integer(), primary_key = True)
-  name = db.Column(db.String(30), nullable=False)
+  dances = db.relationship('Dance')
 
 user_datastore = SQLAlchemyUserDatastore(db, User, Role)
 security = Security(app, user_datastore)
