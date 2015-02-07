@@ -42,6 +42,10 @@ img {
 
 }
 
+ul {
+	list-style-type: none;
+}
+
 /*Catalogue Page CSS Rules*/
 
 .dance_move{
@@ -59,4 +63,9 @@ img {
 .dance_video {
 	margin: auto;
 	width: 95%;
+}
+
+input
+{
+color: black;
 }
