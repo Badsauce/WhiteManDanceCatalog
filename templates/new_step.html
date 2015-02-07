@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block head %}
+<script type="text/javascript" src="{{url_for('static', filename='js/index.js')}}"></script>
+{% endblock %}
+
+{% block content %}
+{% from "_formhelpers.html" import render_field %}
+<form method=post action="/dance/{{ dance_id }}/step/create">
+  <dl>
+    {{ render_field(form.name) }}
+    {{ render_field(form.vine_url) }}
+  </dl>
+  <p><input type=submit value=Create>
+</form>
+
+{% endblock %}

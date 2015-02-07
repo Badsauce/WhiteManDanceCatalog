@@ -2,6 +2,7 @@ import os
 import sys
 import datetime
 import json
+import requests
 
 from flask import Flask, flash, render_template, redirect, jsonify, url_for, request, Response
 from flask.ext.sqlalchemy import SQLAlchemy
@@ -100,6 +101,10 @@ class DanceForm(Form):
       ('mschaperone', 'Middle School Chaperone')
   ])
 
+class StepForm(Form):
+  name = TextField('Name', [validators.Length(min=2, max=30)])
+  vine_url = TextField('Vine URL', [validators.Length(min=2, max=50)])
+
 # Routes
 
 @app.route('/')
@@ -125,6 +130,7 @@ def create_dance():
     dance.name = form.name.data
     dance.category = form.category.data
     dance.difficulty = form.difficulty.data
+    dance.user_id = 1
     db.session.add(dance)
     db.session.commit()
     flash('Successfully added dance!')
@@ -133,7 +139,7 @@ def create_dance():
     flash('Error creating dance!')
     return redirect('/')
 
-@app.route('/dance')
+@app.route('/dances')
 def dances():
   dances = Dance.query.all()
   if dances:
@@ -150,3 +156,55 @@ def dance(id):
   else:
     flash('No such dance!')
     return redirect('/')
+
+@app.route('/dance/<dance_id>/step/new', methods=['GET'])
+@login_required
+def new_step(dance_id):
+  form = StepForm(request.form)
+  return render_template('new_step.html', form=form, dance_id=dance_id)
+
+@app.route('/dance/<dance_id>/step/create', methods=['POST'])
+@login_required
+def create_step(dance_id):
+  form = StepForm(request.form)
+  if form.validate():
+    step = Step()
+    step.name = form.name.data
+    step.vine_url = form.vine_url.data
+
+    # Get Vine embedded HTML from URL
+    r = requests.get('https://vine.co/oembed.json?url=' + step.vine_url)
+    try:
+      html = r.json()['html']
+    except:
+      flash('Error creating step!')
+      return redirect('/')
+
+    step.vine_embedded_html = html
+
+    step.dance_id = dance_id
+    db.session.add(step)
+    db.session.commit()
+    flash('Successfully added step!')
+    return redirect('/')
+  else:
+    flash('Error creating step!')
+    return redirect('/')
+
+#@app.route('/dance/<dance_id>/steps')
+#def steps():
+#  steps = Step.query.all()
+#  if steps:
+#    return render_template('dances.html', steps=steps)
+#  else:
+#    flash('No steps!')
+#    return redirect('/')
+#
+#@app.route('/dance/<dance_id>/step/<step_id>')
+#def step(id):
+#  s = Step.query.get(step_id)
+#  if s:
+#    return render_template('step.html', step=s)
+#  else:
+#    flash('No such step!')
+#    return redirect('/')
