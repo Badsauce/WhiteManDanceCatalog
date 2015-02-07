@@ -9,11 +9,8 @@ Dancey Dance
 {% endblock %}
 
 {% block content %}
-<h1>Dancey Dance</h1>
-<ul>
-  {% for step in steps %}
-    <li>{{ step }}</li>
-  {% endfor %}
-</ul>
+<h1>Name: {{ dance.name }}</h1>
+<h2>Category: {{ dance.category }} </h2>
+<h2>Difficulty: {{ dance.dificulty }} </h2>
 
 {% endblock %}
