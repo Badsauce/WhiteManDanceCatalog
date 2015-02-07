@@ -224,6 +224,15 @@ def step(step_id):
     flash('No such step!')
     return redirect('/')
 
+@app.route('/category/<name>')
+def category(name):
+  dances = db.session.query(Dance).filter(Dance.category == name)
+  if dances:
+    return render_template('category.html', dances=dances, name=name)
+  else:
+    flash('No dances for this category!')
+    return redirect('/')
+
 @app.route('/categories')
 def categories():
   return render_template('categories.html', categories=category_list)
