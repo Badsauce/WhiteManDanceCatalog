@@ -1,0 +1,60 @@
+/*General CSS Rules*/
+
+* {
+	font-family: "Comic Sans MS", sans-serif;
+	color: #FFF;
+	text-align: center;
+}
+
+body {
+	background-image: url("img/redplaid.jpg");
+}
+
+a {
+	text-decoration: none;
+}
+
+p, marquee {
+	font-size: 1.3em;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+img {
+	width: 100%;
+}
+
+/*Home Page CSS Rules*/
+
+.home-title {
+	-webkit-text-stroke: 2px #ff7800;
+}
+
+.button {
+	background-color: #ff7800;
+	padding: 0.1em;
+	border-radius: 1em;
+	border-bottom: 0.5em solid #a24c02;
+
+}
+
+/*Catalogue Page CSS Rules*/
+
+.dance_move{
+	width: 45%;
+	margin: 0.2em;
+	overflow: hidden;
+	border-radius: 1em;
+	display: inline-block;
+	border: 0.3em solid #ff7800;
+	background-color: #a24c02;
+}
+
+/*Dance Move Page CSS Rules*/
+
+.dance_video {
+	margin: auto;
+	width: 95%;
+}
