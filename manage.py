@@ -3,7 +3,7 @@
 import os
 import argparse
 import code
-from fabric.api import task
+
 from app import app, db, user_datastore, Role, User
 
 def build():
