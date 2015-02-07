@@ -6,3 +6,4 @@ Flask-Security==1.6.4
 fabric
 bcrypt
 py-bcrypt
+requests
