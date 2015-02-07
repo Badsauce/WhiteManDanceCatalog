@@ -26,8 +26,8 @@ def build():
       dance.name = 'The Bus Driver'
       dance.youtube_id = 'KqIT64P1BOU'
       dance.category = 'Middle School Chaperone'
-      dance.difficulty = 2
-      dance.hotness = 2
+      dance.difficulty = 3
+      dance.hotness = 4
       dance.user_id = user.id
       db.session.add(dance)
       db.session.commit()
@@ -69,7 +69,7 @@ def build():
       dance.name = 'Raise the Roof'
       dance.youtube_id = '8Br-WlHBQfA'
       dance.category = 'Middle School Chaperone'
-      dance.difficulty = 2
+      dance.difficulty = 1
       dance.hotness = 2
       dance.user_id = user.id
       db.session.add(dance)
@@ -103,9 +103,9 @@ def build():
       dance = Dance()
       dance.name = 'Shopping Cart'
       dance.youtube_id = 'Mj7dB7e32ls'
-      dance.category = 'Middle School Chaperone'
-      dance.difficulty = 2
-      dance.hotness = 2
+      dance.category = 'Wedding'
+      dance.difficulty = 3
+      dance.hotness = 3
       dance.user_id = user.id
       db.session.add(dance)
       db.session.commit()
@@ -138,9 +138,9 @@ def build():
       dance = Dance()
       dance.name = 'The Gambler'
       dance.youtube_id = 'noDsaW373jc'
-      dance.category = 'Middle School Chaperone'
+      dance.category = 'Wedding'
       dance.difficulty = 2
-      dance.hotness = 2
+      dance.hotness = 5
       dance.user_id = user.id
       db.session.add(dance)
       db.session.commit()
@@ -173,9 +173,9 @@ def build():
       dance = Dance()
       dance.name = 'Sprinkler'
       dance.youtube_id = 'vU9upFSbb64'
-      dance.category = 'Middle School Chaperone'
-      dance.difficulty = 2
-      dance.hotness = 2
+      dance.category = 'Bar'
+      dance.difficulty = 3
+      dance.hotness = 1
       dance.user_id = user.id
       db.session.add(dance)
       db.session.commit()
@@ -208,8 +208,8 @@ def build():
       dance = Dance()
       dance.name = 'Hands in the Air'
       dance.youtube_id = 'br4jzbTEb9o'
-      dance.category = 'Middle School Chaperone'
-      dance.difficulty = 2
+      dance.category = 'Bar'
+      dance.difficulty = 1
       dance.hotness = 2
       dance.user_id = user.id
       db.session.add(dance)
@@ -243,9 +243,9 @@ def build():
       dance = Dance()
       dance.name = 'Hands Out, Guns Out, I\'m Out'
       dance.youtube_id = 'S8WUd45uXao'
-      dance.category = 'Middle School Chaperone'
-      dance.difficulty = 2
-      dance.hotness = 2
+      dance.category = 'Wall Flower'
+      dance.difficulty = 4
+      dance.hotness = 4
       dance.user_id = user.id
       db.session.add(dance)
       db.session.commit()
@@ -278,9 +278,9 @@ def build():
       dance = Dance()
       dance.name = 'The Rhythmless Jig'
       dance.youtube_id = 'A_3cww0O-vc'
-      dance.category = 'Middle School Chaperone'
-      dance.difficulty = 2
-      dance.hotness = 2
+      dance.category = 'Wedding'
+      dance.difficulty = 3
+      dance.hotness = 1
       dance.user_id = user.id
       db.session.add(dance)
       db.session.commit()
@@ -313,8 +313,8 @@ def build():
       dance = Dance()
       dance.name = 'The Intense Cotton Eye Joe'
       dance.youtube_id = 'h6As8dTocqI'
-      dance.category = 'Middle School Chaperone'
-      dance.difficulty = 2
+      dance.category = 'Bar'
+      dance.difficulty = 3
       dance.hotness = 2
       dance.user_id = user.id
       db.session.add(dance)
@@ -349,8 +349,8 @@ def build():
       dance.name = 'Eager Student'
       dance.youtube_id = 'c7XX2iZ83ig'
       dance.category = 'Middle School Chaperone'
-      dance.difficulty = 2
-      dance.hotness = 2
+      dance.difficulty = 1
+      dance.hotness = 1
       dance.user_id = user.id
       db.session.add(dance)
       db.session.commit()
@@ -383,9 +383,9 @@ def build():
       dance = Dance()
       dance.name = 'Sizzler'
       dance.youtube_id = 'Rxfm9qELqP0'
-      dance.category = 'Middle School Chaperone'
+      dance.category = 'Wedding'
       dance.difficulty = 2
-      dance.hotness = 2
+      dance.hotness = 1
       dance.user_id = user.id
       db.session.add(dance)
       db.session.commit()
@@ -418,9 +418,9 @@ def build():
       dance = Dance()
       dance.name = 'Saturday Night Fever'
       dance.youtube_id = 'PmezzsBmOh8'
-      dance.category = 'Middle School Chaperone'
-      dance.difficulty = 2
-      dance.hotness = 2
+      dance.category = 'Wedding'
+      dance.difficulty = 3
+      dance.hotness = 5
       dance.user_id = user.id
       db.session.add(dance)
       db.session.commit()
@@ -461,9 +461,9 @@ def build():
       dance = Dance()
       dance.name = 'Roxbury'
       dance.youtube_id = 'XptYC0iWL7s'
-      dance.category = 'Middle School Chaperone'
-      dance.difficulty = 2
-      dance.hotness = 2
+      dance.category = 'Wall Flower'
+      dance.difficulty = 1
+      dance.hotness = 4
       dance.user_id = user.id
       db.session.add(dance)
       db.session.commit()
@@ -496,9 +496,9 @@ def build():
       dance = Dance()
       dance.name = 'Shoulder Rock'
       dance.youtube_id = 'D9hbzzu3oTY'
-      dance.category = 'Middle School Chaperone'
+      dance.category = 'Wall Flower'
       dance.difficulty = 2
-      dance.hotness = 2
+      dance.hotness = 3
       dance.user_id = user.id
       db.session.add(dance)
       db.session.commit()
@@ -525,7 +525,7 @@ def build():
       dance.youtube_id = 'LB-aHh-tHw8'
       dance.category = 'Middle School Chaperone'
       dance.difficulty = 2
-      dance.hotness = 2
+      dance.hotness = 4
       dance.user_id = user.id
       db.session.add(dance)
       db.session.commit()
