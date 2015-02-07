@@ -93,7 +93,7 @@ def build():
 
       step = Step()
       step.name = 'Step 3'
-      step.vine_url = 'OUzxZHDl7Dv'
+      step.vine_url = 'OUz2FWI6MFr'
       step.vine_embedded_html = get_html(step.vine_url)
       step.dance_id = dance.id
       db.session.add(step)
