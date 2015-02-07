@@ -20,14 +20,6 @@ categories = [
   ('funeralwake', 'Funeral/Wake')
 ]
 
-difficulties = [
-  ('wedding', 'Wedding'),
-  ('bar', 'Bar'),
-  ('wallflower', 'Wall Flower'),
-  ('mschaperone', 'Middle School Chaperone'),
-  ('funeralwake', 'Funeral/Wake')
-]
-
 # Config
 
 app = Flask(__name__)
@@ -74,6 +66,8 @@ class Dance(db.Model):
   id = db.Column(db.Integer(), primary_key = True)
   name = db.Column(db.String(30), nullable=False)
   category = db.Column(db.String(30), nullable=False)
+  difficulty = db.Column(db.Integer(), default=1)
+  hotness = db.Column(db.Integer(), default=1)
   youtube_id = db.Column(db.String(50), nullable=False)
   steps = db.relationship('Step')
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -108,7 +102,16 @@ class DanceForm(Form):
   name = TextField('Name', [validators.Length(min=2, max=30)])
   youtube_id = TextField('Youtube ID', [validators.Length(min=2, max=50)])
   category = SelectField('Category', choices=categories)
-  difficulty = SelectField('Difficulty', choices=difficulties)
+  difficulty = RadioField('Difficulty', choices=[
+    ('1','Easy'),
+    ('2','Medium'),
+    ('3','Hard')
+  ])
+  hotness = RadioField('Hotness', choices=[
+    ('1','Mild'),
+    ('2','Spicy'),
+    ('3','Hot')
+  ])
 
 class StepForm(Form):
   name = TextField('Name', [validators.Length(min=2, max=30)])
@@ -140,6 +143,7 @@ def create_dance():
     dance.youtube_id = form.youtube_id.data
     dance.category = form.category.data
     dance.difficulty = form.difficulty.data
+    dance.hotness = form.hotness.data
     dance.user_id = 1
     db.session.add(dance)
     db.session.commit()
