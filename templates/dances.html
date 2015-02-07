@@ -19,7 +19,7 @@ All Dances
   {% for dance in dances %}
     <li class="dance_move">
       <h2>{{ dance.name }}</h2>
-      <img src="/static/img/raise_the_roof.gif"/>
+      <img src='{{ "/static/img/dance_thumbnail_%d.gif" % dance.id }}'/>
       <h3>Category: {{ dance.category }}</h3>
       <h3>Difficulty: {{ dance.diffulty }}</h3>
     </li>
