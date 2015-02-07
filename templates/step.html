@@ -11,6 +11,8 @@ Dancey Dance
 {% block content %}
 <h1>Name: {{ step.name }}</h1>
 <h2>Vine URL: {{ step.vine_url }} </h2>
+{% autoescape off %}
 <h2>Vine Embedded HTML: {{ step.vine_embedded_html }} </h2>
+{% endautoescape %}
 
 {% endblock %}

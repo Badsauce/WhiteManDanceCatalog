@@ -10,6 +10,24 @@ from flask.ext.security import Security, SQLAlchemyUserDatastore, UserMixin, Rol
 from flask.ext.security.signals import user_registered
 from wtforms import *
 
+# Constants
+
+categories = [
+  ('wedding', 'Wedding'),
+  ('bar', 'Bar'),
+  ('wallflower', 'Wall Flower'),
+  ('mschaperone', 'Middle School Chaperone'),
+  ('funeralwake', 'Funeral/Wake')
+]
+
+difficulties = [
+  ('wedding', 'Wedding'),
+  ('bar', 'Bar'),
+  ('wallflower', 'Wall Flower'),
+  ('mschaperone', 'Middle School Chaperone'),
+  ('funeralwake', 'Funeral/Wake')
+]
+
 # Config
 
 app = Flask(__name__)
@@ -57,8 +75,6 @@ class Dance(db.Model):
   name = db.Column(db.String(30), nullable=False)
   category = db.Column(db.String(30), nullable=False)
   youtube_id = db.Column(db.String(50), nullable=False)
-  up = db.Column(db.Integer(), default=0)
-  down = db.Column(db.Integer(), default=0)
   steps = db.relationship('Step')
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
@@ -91,19 +107,8 @@ def user_registered_sighandler(app, user, confirm_token):
 class DanceForm(Form):
   name = TextField('Name', [validators.Length(min=2, max=30)])
   youtube_id = TextField('Youtube ID', [validators.Length(min=2, max=50)])
-  category = SelectField('Category', choices=[
-      ('wedding', 'Wedding'),
-      ('bar', 'Bar'),
-      ('wallflower', 'Wall Flower'),
-      ('mschaperone', 'Middle School Chaperone'),
-      ('funeralwake', 'Funeral/Wake')
-  ])
-  difficulty = SelectField('Difficulty', choices=[
-      ('wedding', 'Wedding'),
-      ('bar', 'Bar'),
-      ('wallflower', 'Wall Flower'),
-      ('mschaperone', 'Middle School Chaperone')
-  ])
+  category = SelectField('Category', choices=categories)
+  difficulty = SelectField('Difficulty', choices=difficulties)
 
 class StepForm(Form):
   name = TextField('Name', [validators.Length(min=2, max=30)])

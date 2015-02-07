@@ -4,27 +4,40 @@ import os
 import argparse
 import code
 
-from app import app, db, user_datastore, Role, User
+from app import app, db, user_datastore, Role, User, Dance, Step
+from flask_security.utils import encrypt_password
+import requests
+
+def get_html(url):
+  r = requests.get('https://vine.co/oembed.json?url=' + url)
+  return r.json()['html']
 
 def build():
-  db.create_all()
-  user_role = user_datastore.create_role(name="user")
-  admin_role = user_datastore.create_role(name="admin")
+  with app.app_context():
+    db.create_all()
+    if not User.query.first():
+      user_datastore.create_user(
+        email='coach@howtodance.website',
+        password=encrypt_password('password'))
+      db.session.commit()
+      user = User.query.first()
 
-  admin_user = user_datastore.create_user(email="admin@sup.io", password="password")
-  user_datastore.add_role_to_user(admin_user, admin_role)
+      dance = Dance()
+      dance.name = 'Hands in the air'
+      dance.youtube_id = 'ZdtNR0Gu_FI'
+      dance.category = 'Bar'
+      dance.difficulty = 'Bar'
+      dance.user_id = user.id
+      db.session.add(dance)
+      db.session.commit()
 
-  test_user1 = user_datastore.create_user(email="test@sup.io", password="password")
-  test_user2 = user_datastore.create_user(email="test2@sup.io", password="password")
-
-  user_datastore.add_role_to_user(test_user1, user_role)
-  user_datastore.add_role_to_user(test_user2, user_role)
-
-  db.session.add(admin_user)
-  db.session.add(test_user1)
-  db.session.add(test_user2)
-
-  db.session.commit()
+      step = Step()
+      step.name = 'Step 1'
+      step.vine_url = 'https://vine.co/v/OUzUuPjmleM'
+      step.vine_embedded_html = get_html(step.vine_url)
+      step.dance_id = dance.id
+      db.session.add(step)
+      db.session.commit()
 
 def console():
   context = locals()
