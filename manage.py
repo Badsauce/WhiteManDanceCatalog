@@ -384,7 +384,7 @@ def build():
       dance.name = 'Sizzler'
       dance.youtube_id = 'Rxfm9qELqP0'
       dance.category = 'Wedding'
-      dance.difficulty = 2
+      dance.difficulty = 5
       dance.hotness = 1
       dance.user_id = user.id
       db.session.add(dance)
@@ -419,7 +419,7 @@ def build():
       dance.name = 'Saturday Night Fever'
       dance.youtube_id = 'PmezzsBmOh8'
       dance.category = 'Wedding'
-      dance.difficulty = 3
+      dance.difficulty = 4
       dance.hotness = 5
       dance.user_id = user.id
       db.session.add(dance)

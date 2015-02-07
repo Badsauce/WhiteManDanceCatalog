@@ -18,7 +18,7 @@ category_list = [
   ('bar', 'Bar'),
   ('wallflower', 'Wall Flower'),
   ('mschaperone', 'Middle School Chaperone'),
-  ('funeralwake', 'Funeral/Wake')
+  ('funeralwake', 'Funeral')
 ]
 
 # Config
