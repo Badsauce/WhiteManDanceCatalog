@@ -6,7 +6,11 @@
         <h2>{{ dance.name }}</h2>
         <img src='{{ "/static/img/dance_thumbnail_%d.gif" % dance.id }}'/>
         <h3>Category: {{ dance.category }}</h3>
-        <h3>Difficulty: {{ dance.difficulty }}</h3>
+        <h3>Difficulty:</h3><img width="64" height="300" src="../static/img/travolta_{{ { 1: 1, 2: 2, 3: 2, 4: 3, 5: 3 }[dance.difficulty] }}.png">
+        <h3>Hotness:</h3>
+          {% for hot in range(dance.hotness) %}
+            <img width="64" height="300" src="../static/img/pepper.png">
+          {% endfor %}
       </a>
     </li>
   {% endfor %}
