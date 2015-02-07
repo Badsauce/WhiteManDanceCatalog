@@ -94,3 +94,9 @@ def register():
 @login_required
 def dashboard():
   return render_template('dashboard.html')
+
+@app.route('/danceydance/<id>')
+#@login_required
+def danceydance(id):
+  steps = ['a', 'b', 'c']
+  return render_template('danceydance.html', steps=steps)
