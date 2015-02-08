@@ -11,7 +11,7 @@ THANKS
 {% block content %}
 
 <h2>www.howtodance.website</h2>
-<img class="palooza" src="/static/img/dance_thumbnail_1.gif"/>
+<img class="palooza" src="/static/img/dance_thumbnail_15.gif"/>
 
 <footer>
   <img src="/static/img/ad.png" />
@@ -20,7 +20,7 @@ THANKS
 <script>
   window.setInterval(function(){
     var nextImage = Math.floor((Math.random() * 15) + 1);
-    $('.palooza').attr("src", "/static/img/dance_thumbnail_"+nextImage+".gif");
+    $('.rotate').attr("src", "/static/img/dance_thumbnail_"+nextImage+".gif");
 }, 2000);
 
 </script>
