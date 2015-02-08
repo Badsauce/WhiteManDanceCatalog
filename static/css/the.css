@@ -99,7 +99,7 @@ input {
 	}
 
 	h1 {
-		margin: .2em 0;
+		margin: .1em 0;
 	}
 
 	footer {
@@ -107,11 +107,19 @@ input {
 	}
 
 	.dance_move {
-		font-size: .9em;
+		font-size: .7em;
 		width: 20%;
 	}
 
 	.dance_move h2{
-		min-height: 154px;
+		min-height: 110px;
+	}
+
+	h3 {
+		margin: .2em 0;
+	}
+
+	ul {
+		margin: 0;
 	}
 }
