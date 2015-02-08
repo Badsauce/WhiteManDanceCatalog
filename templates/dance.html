@@ -10,8 +10,7 @@ Dance {{ dance.name }}
 
 {% block content %}
 <h1>Name: {{ dance.name }}</h1>
-<h2>Category: {{ dance.category }} </h2>
-<h2>Difficulty: {{ dance.dificulty }} </h2>
+<h2 class="bump">Category: {{ dance.category }} </h2>
 <ul>
   {% for step in dance.steps %}
     <li class="vine-container">

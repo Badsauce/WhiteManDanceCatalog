@@ -127,7 +127,12 @@ input {
 		margin-bottom: 50vh;
 	}
 
+  .bump {
+    margin-bottom: 60vh;
+  }
+
 	.palooza {
 		width: 50%;
 	}
+
 }
