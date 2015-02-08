@@ -122,4 +122,8 @@ input {
 	ul {
 		margin: 0;
 	}
+
+	.vine-container {
+		margin-bottom: 50vh;
+	}
 }
