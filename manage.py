@@ -554,7 +554,6 @@ def build():
       db.session.add(step)
       db.session.commit()
 
-
 def console():
   context = locals()
   context['app'] = app

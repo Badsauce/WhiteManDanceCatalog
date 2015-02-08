@@ -18,7 +18,6 @@ category_list = [
   ('bar', 'Bar'),
   ('wallflower', 'Wall Flower'),
   ('mschaperone', 'Middle School Chaperone'),
-  ('funeralwake', 'Funeral')
 ]
 
 # Config
@@ -241,6 +240,6 @@ def categories():
 def gifapalooza():
   return render_template('gifapalooza.html')
 
-@app.route('/category/Funeral/Wake')
+@app.route('/funeral')
 def funeral():
-  return render_template('wake.html')
+  return render_template('funeral.html')
