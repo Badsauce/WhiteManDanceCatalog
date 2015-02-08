@@ -126,4 +126,8 @@ input {
 	.vine-container {
 		margin-bottom: 50vh;
 	}
+
+	.palooza {
+		width: 50%;
+	}
 }
