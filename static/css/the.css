@@ -76,3 +76,41 @@ input {
 .pepper {
 	width: 15%;
 }
+
+@media (min-width: 600px) {
+	.mobile {
+		display: none;
+	}
+
+  .button {
+		width: 40%;
+		margin: auto;
+		font-size: .8em;
+	}
+
+	.desktop-collapse {
+		display: inline-block;
+	}
+
+	.boogie {
+		display: block;
+		margin: auto;
+		width: 35%;
+	}
+
+	h1 {
+		margin: .2em 0;
+	}
+
+	footer {
+		margin-top: .3em;
+	}
+
+	.dance_move {
+		width: 22%;
+	}
+
+	.dance_move h2{
+		min-height: 154px;
+	}
+}
