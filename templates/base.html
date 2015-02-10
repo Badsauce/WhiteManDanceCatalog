@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/normalize.css')}}"/>
     <link rel="stylesheet" href="{{url_for('static', filename='css/the.css')}}"/>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <script type="text/javascript" src="{{url_for('static', filename='vendor/jquery/jquery-2.1.1.min.js')}}"></script>
 
     {% block head %}
@@ -22,6 +24,6 @@
     {% endwith %}
     {% block content %}
     {% endblock %}
-    
+
   </body>
 </html>
